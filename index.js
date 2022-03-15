@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser')
 var express = require('express')
 const db = require('./db')
+const FriendListRouter = require('./routers/friendlist')
 const UserRouter = require('./routers/signup_login')
 require('dotenv').config()
 
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 db()
 
 app.use('/signup_login', UserRouter)
+app.use('/friendlist', FriendListRouter)
 
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port} `)

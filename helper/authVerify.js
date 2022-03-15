@@ -11,7 +11,7 @@ exports.authVerify = (req, res, next) => {
             res.send({ error: 'Wrong pattern of Authorization header' })
         }
         else {
-            let token = authArray[2]
+            let token = authArray[1]
             try {
                 jwt.verify(token, 'authpasskey')
                 let decodedJwt = jwt.decode(token, { complete: true })
